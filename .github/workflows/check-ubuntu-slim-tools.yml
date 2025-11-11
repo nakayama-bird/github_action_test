@@ -12,13 +12,23 @@ jobs:
           echo "Checking jq..."
           if command -v jq &> /dev/null; then
             echo "✓ jq is installed: $(jq --version)"
+            echo "  Location: $(which jq)"
           else
             echo "✗ jq is NOT installed"
           fi
           
           echo "Checking curl..."
           if command -v curl &> /dev/null; then
-            echo "✓ curl is installed: $(curl --version)"
+            echo "✓ curl is installed: $(curl --version | head -n1)"
+            echo "  Location: $(which curl)"
           else
             echo "✗ curl is NOT installed"
+          fi
+          
+          echo "Checking which..."
+          if command -v which &> /dev/null; then
+            echo "✓ which is installed: $(which --version 2>&1 | head -n1)"
+            echo "  Location: $(which which)"
+          else
+            echo "✗ which is NOT installed"
           fi
