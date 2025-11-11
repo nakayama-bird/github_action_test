@@ -1,3 +1,8 @@
+name: Check Ubuntu Slim Tools
+
+on:
+  workflow_dispatch:
+
 jobs:
   check-tools:
     runs-on: ubuntu-slim
