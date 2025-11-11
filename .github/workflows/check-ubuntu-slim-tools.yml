@@ -1,0 +1,19 @@
+jobs:
+  check-tools:
+    runs-on: ubuntu-slim
+    steps:
+      - name: Check for jq and curl
+        run: |
+          echo "Checking jq..."
+          if command -v jq &> /dev/null; then
+            echo "✓ jq is installed: $(jq --version)"
+          else
+            echo "✗ jq is NOT installed"
+          fi
+          
+          echo "Checking curl..."
+          if command -v curl &> /dev/null; then
+            echo "✓ curl is installed: $(curl --version)"
+          else
+            echo "✗ curl is NOT installed"
+          fi
